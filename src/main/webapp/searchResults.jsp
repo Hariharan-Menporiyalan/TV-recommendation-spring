@@ -15,8 +15,8 @@
 	</tr>
 	<c:forEach var="searchResults" items="${searchResults}">
 		<tr>
-		<td><img alt="${searchResults.show.name}" src="${searchResults.show.image.medium}"></td>
-			<td>${searchResults.show.name}</td>
+		<td><a href="${searchResults.show.url}"><img alt="${searchResults.show.name}" src="${searchResults.show.image.medium}"></a></td>
+			<td><a href="${searchResults.show.url}">${searchResults.show.name}</a></td>
 			<td>${searchResults.show.rating.average}</td>
 		</tr>
 	</c:forEach>

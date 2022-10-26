@@ -14,8 +14,8 @@
      </tr>
       <c:forEach var="todayShows" items="${todayShows}">
      <tr>
-     <td><img alt="${todayShows.name}" src="${todayShows.show.image.medium}">
-     	<td>${todayShows.name}</td>
+     <td><a href="${todayShows.url}"><img alt="${todayShows.name}" src="${todayShows.show.image.medium}"></a></td>
+     	<td><a href="${todayShows.url}">${todayShows.name}</a></td>
      	<td>${todayShows.airtime}</td>
  	</tr>
  	</c:forEach>

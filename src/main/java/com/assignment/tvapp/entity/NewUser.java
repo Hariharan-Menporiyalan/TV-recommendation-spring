@@ -1,18 +1,21 @@
 package com.assignment.tvapp.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "USER_TABLE")
 public class NewUser {
+	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long index;
 	private String email;
 	private String name;
+	private Integer showId;
 	
 	public String getEmail() {
 		return email;
@@ -26,11 +29,17 @@ public class NewUser {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public String toString() {
-		return name;
+	public Integer getShowId() {
+		return showId;
 	}
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_show_id")
-	private Recommendation recommendation;
+	public void setShowId(Integer showId) {
+		this.showId = showId;
+	}
+	public Long getIndexLong() {
+		return index;
+	}
+	public void setIndexLong(Long index) {
+		this.index = index;
+	}
+	
 }
