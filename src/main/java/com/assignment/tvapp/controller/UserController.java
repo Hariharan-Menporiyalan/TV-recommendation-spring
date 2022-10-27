@@ -97,8 +97,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("showRecommendations")
-	public ModelAndView getShowRecommendation(Model model){
-		NewUser user = new NewUser();
+	public ModelAndView getShowRecommendation(Model model, NewUser user){
 		String userName = userDAO.getUserName(emailName);
 		ModelAndView modelAndView = new ModelAndView("homepage.jsp");
 		Integer randomRecommendedNumber = service.randomIntegerGenerator();
@@ -112,16 +111,18 @@ public class UserController {
 		}
 		Object[] recommendedShowArray = {};
 		ArrayList<Object> recommendedShowsList = new ArrayList<Object>(Arrays.asList(recommendedShowArray));
-		
 		for(Integer randomNumber: randomRecommendedNumberList) {
 			url = "https://api.tvmaze.com/shows/" + randomNumber;
 			Object recommendedShow = restTemplate.getForObject(url, Object.class);
 			recommendedShowsList.add(recommendedShow);
+			Long maxIndex = userDAO.getIndexMaximum();
+			user.setIndex(maxIndex + 1);
 			user.setEmail(emailName);
 			user.setName(userName);
 			user.setShowId(randomNumber);
 			userDAO.save(user);
 		}
+		
 		modelAndView.addObject("userName", userName);
 		model.addAttribute("recommendedShows", recommendedShowsList);
 		return modelAndView;

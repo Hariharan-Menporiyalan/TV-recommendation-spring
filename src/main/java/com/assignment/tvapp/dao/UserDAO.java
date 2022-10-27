@@ -22,4 +22,7 @@ public interface UserDAO extends JpaRepository<NewUser, Long> {
 	
 	@Query("select showId from NewUser where email = :email and showId is not null")
 	public List<Integer> getshowIdList(String email);
+	
+	@Query("select max(index) from NewUser")
+	public Long getIndexMaximum();
 }

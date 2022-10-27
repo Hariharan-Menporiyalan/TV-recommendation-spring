@@ -35,10 +35,10 @@ public class NewUser {
 	public void setShowId(Integer showId) {
 		this.showId = showId;
 	}
-	public Long getIndexLong() {
+	public Long getIndex() {
 		return index;
 	}
-	public void setIndexLong(Long index) {
+	public void setIndex(Long index) {
 		this.index = index;
 	}
 	
