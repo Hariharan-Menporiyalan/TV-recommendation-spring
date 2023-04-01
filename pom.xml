@@ -8,7 +8,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.assignment</groupId>
-	<artifactId>Kyro</artifactId>
+	<artifactId>Kyro-Spring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Kyro</name>
 	<description>Kyro Spring boot application with TVMaze api</description>

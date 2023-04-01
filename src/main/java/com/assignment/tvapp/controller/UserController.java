@@ -87,7 +87,8 @@ public class UserController {
 		String peopleName = searchShow.getPeopleName();
 		if (!showName.isEmpty()) {
 			url = "https://api.tvmaze.com/search/shows?q=" + showName;
-		} else if (!peopleName.isEmpty()) {
+		}
+		if (!peopleName.isEmpty()) {
 			url = "https://api.tvmaze.com/search/people?q=" + peopleName;
 		}
 				
